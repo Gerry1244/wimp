@@ -12,8 +12,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
+import com.liberymutual.goforcode.wimp.models.Actor;
 import com.liberymutual.goforcode.wimp.models.Movie;
+import com.liberymutual.goforcode.wimp.repositories.ActorRepository;
 import com.liberymutual.goforcode.wimp.repositories.MovieRepository;
 
 @RestController
@@ -22,15 +23,28 @@ import com.liberymutual.goforcode.wimp.repositories.MovieRepository;
 public class MovieApiController {
 
 	private MovieRepository movieRepo;
+	private ActorRepository actorRepo;
 
-	public MovieApiController(MovieRepository movieRepo) {
+	public MovieApiController(MovieRepository movieRepo, ActorRepository actorRepo) {
 		this.movieRepo = movieRepo;
+		this.actorRepo = actorRepo;
 
 		movieRepo.save(new Movie("Jaws", "AAA", 999999l));
 		movieRepo.save(new Movie("Halloween", "BBB", 999999L));
 		movieRepo.save(new Movie("Midnight Run", "CCC", 8888888l));
 		movieRepo.save(new Movie("Final Countdown", "DDDD", 777777l));
 
+	}
+
+	@PostMapping("{movieId}/actors")
+	public Movie associateAnActor(@PathVariable long movieId, @RequestBody Actor actor) {
+		Movie movie = movieRepo.findOne(movieId);
+		actor = actorRepo.findOne(actor.getId());
+
+		movie.addActor(actor);
+		movieRepo.save(movie);
+
+		return movie;
 	}
 
 	@GetMapping("")
@@ -71,7 +85,5 @@ public class MovieApiController {
 		movie.setId(id);
 		return movieRepo.save(movie);
 	}
-	
-	
 
 }

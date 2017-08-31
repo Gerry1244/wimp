@@ -1,4 +1,4 @@
-package com.liberymutual.goforcode.wimp.api;
+ package com.liberymutual.goforcode.wimp.api;
 
 import java.util.List;
 
@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 import com.liberymutual.goforcode.wimp.models.Actor;
+import com.liberymutual.goforcode.wimp.models.ActorsWithMovies;
+import com.liberymutual.goforcode.wimp.models.Movie;
 import com.liberymutual.goforcode.wimp.repositories.ActorRepository;
 
 @RestController
@@ -32,6 +34,14 @@ public class ActorApiController {
 		actorRepo.save(new Actor("Gene", "Hackman",1999L));
 
 	}
+	
+//	@PostMapping("{movieId}/actors")
+//	public Movie associateAnActor(@PathVariable long movieId, @RequestBody Actor actor) {
+//		Movie movie = movieRepo.findOne(movieId);
+//		
+//		return movie;
+//		
+//	}
 
 	@GetMapping("")
 	public List<Actor> getAll() {
@@ -44,8 +54,18 @@ public class ActorApiController {
 		if (actor == null) {
 			throw new StuffNotFoundException();
 		}
+	
+//	ActorsWithMovies newActor = new ActorsWithMovies();
+//	newActor.setActiveSinceYear(actor.getActiveSinceYear());
+//	newActor.setBirthDate(actor.getBirthDate());
+//	newActor.setMovies(actor.getMovies());
+//	newActor.setFirstName(actor.getFirstName());
+//	newActor.setLastName(actor.getLastName());
+//	
+//	return newActor;
 		return actor;
-	}
+}
+
 
 	@DeleteMapping("{id}")
 	public Actor delete(@PathVariable long id) {
@@ -71,5 +91,5 @@ public class ActorApiController {
 		actor.setId(id);
 		return actorRepo.save(actor);
 	}
-	
+
 }
