@@ -1,4 +1,4 @@
-package com.liberymutual.goforcode.wimp.models;
+package com.libertymutual.goforcode.wimp.models;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
- package com.liberymutual.goforcode.wimp.api;
+package com.libertymutual.goforcode.wimp.api;
 
 import java.util.List;
 
@@ -12,11 +12,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
-import com.liberymutual.goforcode.wimp.models.Actor;
-import com.liberymutual.goforcode.wimp.models.ActorsWithMovies;
-import com.liberymutual.goforcode.wimp.models.Movie;
-import com.liberymutual.goforcode.wimp.repositories.ActorRepository;
+import com.libertymutual.goforcode.wimp.models.Actor;
+import com.libertymutual.goforcode.wimp.models.ActorsWithMovies;
+import com.libertymutual.goforcode.wimp.models.Movie;
+import com.libertymutual.goforcode.wimp.repositories.ActorRepository;
 
 @RestController
 @RequestMapping("/api/actors")
@@ -26,12 +25,12 @@ public class ActorApiController {
 	private ActorRepository actorRepo;
 
 	public ActorApiController(ActorRepository actorRepo) {
-		this.actorRepo = actorRepo;
+		this.actorRepo = actorRepo; 
 
 		actorRepo.save(new Actor("Robert", "Redford",1973L));
 		actorRepo.save(new Actor("Tom", "Cruise",1977L));
 		actorRepo.save(new Actor("Minnie", "Driver",1982L));
-		actorRepo.save(new Actor("Gene", "Hackman",1999L));
+		actorRepo.save(new Actor("Gene", "Hackman",1999L)); 
 
 	}
 	
@@ -63,18 +62,18 @@ public class ActorApiController {
 //	newActor.setLastName(actor.getLastName());
 //	
 //	return newActor;
-		return actor;
+	return actor;
 }
 
 
 	@DeleteMapping("{id}")
 	public Actor delete(@PathVariable long id) {
 		try {
-			Actor actor = actorRepo.findOne(id);
+			Actor actor = actorRepo.findOne(id); 
 			actorRepo.delete(id);
 			return actor;
 		} catch (EmptyResultDataAccessException erd) {
-			return null;
+			return null;  
 
 		}
 
@@ -82,7 +81,6 @@ public class ActorApiController {
 
 	@PostMapping("")
 	public Actor create(@RequestBody Actor actor) {
-		actorRepo.save(actor);
 		return actorRepo.save(actor);
 	}
 

@@ -1,4 +1,4 @@
-package com.liberymutual.goforcode.wimp.models;
+package com.libertymutual.goforcode.wimp.models;
 
 import java.sql.Date;
 import java.util.ArrayList;
@@ -39,7 +39,7 @@ public class Movie {
 	@ManyToMany
 	private List<Actor> actors;
 
-	public Movie(String title, String distributor, Long budget) {
+	public Movie(String title, String distributor, Long budget) { 
 		this.title = title;
 		this.distributor = distributor;
 		this.budget = budget;
@@ -64,7 +64,7 @@ public class Movie {
 	}
 
 	public String getTitle() {
-		return title;
+		return title; 
 	}
 
 	public void setTitle(String title) {

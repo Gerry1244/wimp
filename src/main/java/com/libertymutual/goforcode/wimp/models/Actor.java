@@ -1,4 +1,4 @@
-package com.liberymutual.goforcode.wimp.models;
+package com.libertymutual.goforcode.wimp.models;
 
 import java.util.List;
 import java.sql.Date;
@@ -44,8 +44,8 @@ public class Actor {
 		
 	}
 	
-	public Actor(String firstName, String lastName, Long activeSinceYear) {
-		this.firstName = firstName;
+	public Actor(String firstName, String lastName, Long activeSinceYear) { 
+		this.firstName = firstName; 
 		this.lastName = lastName;
 		this.activeSinceYear = activeSinceYear;	
 		
