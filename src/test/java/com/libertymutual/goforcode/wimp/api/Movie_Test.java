@@ -9,6 +9,7 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.libertymutual.goforcode.wimp.models.Actor;
 import com.libertymutual.goforcode.wimp.models.Movie;
 
 public class Movie_Test {
@@ -19,27 +20,94 @@ public class Movie_Test {
 		movie = new Movie();
 	}
 
+//	@Test
+//	public void test_entire_constructor() {
+//		// Act
+//		Movie movie = new Movie();
+//
+//		// Assert
+//		assertThat(movie.getTitle()).isEqualTo("Jaws");
+//		assertThat(movie.getReleaseDate()).isEqualTo(new Date(Date.parse("01-01-1900")));
+//		assertThat(movie.getBudget()).isEqualTo(36376L);
+//		assertThat(movie.getDistributor()).isEqualTo("Dist");
+//
+//	}
+
 	@Test
 	public void test_getid_and_setid() {
 		// arrange
-		movie.setId(1L);
+		movie.setId(22L);
 
 		// Act
-	//	Movie actual = .getId();
+		Long actual = movie.getId();
 
 		// Assert
-		assertThat(movie.getId()).isEqualTo(1L);
+		assertThat(movie.getId()).isEqualTo(22L);
 	}
-	
+
 	@Test
-	public void test_getTitle_and_SetTitle() {
-		//arrange
-		movie.getTitle();
-		
-		//Act
-		
-		
-		
+	public void test_getTitle_and_setTitle() {
+		// Arrange
+		movie.setTitle("Jaws");
+
+		// Act
+		String actual = movie.getTitle();
+
+		// Assert
+		assertThat(movie.getTitle()).isEqualTo("Jaws");
+
 	}
+
+	@Test
+	public void test_getBudget_and_setBudget() {
+		// Arrange
+		movie.setBudget(36376L);
+
+		// Act
+		Long actual = movie.getBudget();
+
+		// Assert
+		assertThat(movie.getBudget()).isEqualTo(36376L);
+
+	}
+
+	@Test
+	public void test_getDistributor_and_setDistributor() {
+		// Arrange
+		movie.setDistributor("Miramar");
+
+		// Act
+		String actual = movie.getDistributor();
+
+		// Assert
+		assertThat(movie.getDistributor()).isEqualTo("Miramar");
+
+	}
+
+	@Test
+	public void test_getActor_and_setActor() {
+		// Arrange
+		List<Actor> actors = new ArrayList<Actor>();
+		movie.setActors(actors);
+
+		// Act
+		List<Actor> actual = movie.getActors();
+
+		// Assert
+		assertThat(actual).isSameAs(actors);
+
+	}
+
+//	 @Test
+//		 public void test_getReleaseDate_and_setReleaseDate() {
+//		 // Arrange
+//			 movie.setReleaseDate(new Date(Date.parse("01-01-1900")));
+//		 
+//		 // Act
+//		 Date releaseDate = movie.getReleaseDate();
+//		
+//		 // Assert
+//		 assertThat(releaseDate).isEqualTo(new Date(Date.parse("01-01-1900")));
+//		 }
 
 }
