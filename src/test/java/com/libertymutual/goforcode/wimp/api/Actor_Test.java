@@ -81,17 +81,17 @@ public class Actor_Test {
 		assertThat(actor.getActiveSinceYear()).isEqualTo(1972L);
 	}
 	
-//	@Test
-//	public void test_getBirthDate_and_setBirthDate() {
-//		// Arrange
-//		actor.setBirthDate(new Date(Date.parse("04/23/1945")));
-//		
-//		// Act
-//		Date birthDate = actor.getBirthDate();
-//		
-//		// Assert
-//		assertThat(birthDate).isEqualTo(new Date(Date.parse("04/23/1945")));
-//	}
+	@Test
+	public void test_getBirthDate_and_setBirthDate() {
+		// Arrange
+		actor.setBirthDate(new Date(Date.parse("04/23/1945")));
+		
+		// Act
+		Date birthDate = actor.getBirthDate();
+		
+		// Assert
+		assertThat(birthDate).isEqualTo(new Date(Date.parse("04/23/1945")));
+	}
 	
 	
 }

@@ -20,19 +20,6 @@ public class Movie_Test {
 		movie = new Movie();
 	}
 
-//	@Test
-//	public void test_entire_constructor() {
-//		// Act
-//		Movie movie = new Movie();
-//
-//		// Assert
-//		assertThat(movie.getTitle()).isEqualTo("Jaws");
-//		assertThat(movie.getReleaseDate()).isEqualTo(new Date(Date.parse("01-01-1900")));
-//		assertThat(movie.getBudget()).isEqualTo(36376L);
-//		assertThat(movie.getDistributor()).isEqualTo("Dist");
-//
-//	}
-
 	@Test
 	public void test_getid_and_setid() {
 		// arrange
@@ -98,16 +85,16 @@ public class Movie_Test {
 
 	}
 
-//	 @Test
-//		 public void test_getReleaseDate_and_setReleaseDate() {
-//		 // Arrange
-//			 movie.setReleaseDate(new Date(Date.parse("01-01-1900")));
-//		 
-//		 // Act
-//		 Date releaseDate = movie.getReleaseDate();
-//		
-//		 // Assert
-//		 assertThat(releaseDate).isEqualTo(new Date(Date.parse("01-01-1900")));
-//		 }
+	 @Test
+		 public void test_getReleaseDate_and_setReleaseDate() {
+		 // Arrange
+			 movie.setReleaseDate(new Date(Date.parse("01/01/1900")));
+		 
+		 // Act
+		 Date releaseDate = movie.getReleaseDate();
+		
+		 // Assert
+		 assertThat(releaseDate).isEqualTo(new Date(Date.parse("01/01/1900")));
+		 }
 
 }
